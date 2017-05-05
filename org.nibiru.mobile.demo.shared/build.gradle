@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+jar {
+   from sourceSets.main.java.srcDirs 
+}
+
+dependencies {
+	compile "io.github.nibiruos.model:org.nibiru.model.core:${nibiruModelVersion}"
+	compile "com.google.guava:guava:${guavaVersion}"
+	compile "javax.inject:javax.inject:1"
+	compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.7'
+}

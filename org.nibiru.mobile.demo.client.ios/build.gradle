@@ -1,0 +1,52 @@
+/************************/
+/** Build Script Setup **/
+/************************/
+
+buildscript {
+	// Add central and local Maven repos
+	repositories {
+		jcenter()
+		mavenLocal()
+	}
+	dependencies {
+		// MOE plugin
+		classpath group: 'org.multi-os-engine', name: 'moe-gradle', version: '1.3.+'
+	}
+}
+
+apply plugin: 'moe'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Exclude all files from Gradle's test runner
+test { exclude '**' }
+
+moe {
+	xcode {
+		project 'xcode/Demo.xcodeproj'
+		mainTarget = 'Demo'
+		testTarget = 'Demo-Test'
+	}
+}
+
+configurations {
+	provided
+}
+
+sourceSets {
+	main {
+		compileClasspath += configurations.provided
+	}
+}
+
+dependencies {
+	compile project(":org.nibiru.mobile.demo.client.core")
+	compile "io.github.nibiruos.ui:org.nibiru.ui.ios:${nibiruUiVersion}"
+	compile "io.github.nibiruos.async:org.nibiru.async.ios:${nibiruAsyncVersion}"
+	compile "io.github.nibiruos.mobile:org.nibiru.mobile.ios:${nibiruMobileVersion}"
+	compile "com.google.dagger:dagger:${daggerVersion}"
+	provided "com.google.guava:guava:${guavaVersion}"
+	compile "com.google.dagger:dagger-compiler:${daggerVersion}"
+	compile fileTree(dir: 'lib', include: '*.jar')
+}

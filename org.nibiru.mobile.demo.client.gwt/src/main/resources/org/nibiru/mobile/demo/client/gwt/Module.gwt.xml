@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4.0//EN"
+	"http://google-web-toolkit.googlecode.com/svn/tags/2.4.0/distro-source/core/src/gwt-module.dtd">
+<module rename-to="demo">
+	<inherits name="dagger.Dagger" />
+	<inherits name="org.nibiru.mobile.demo.client.core.Module" />
+	<inherits name="org.nibiru.ui.gwt.Module" />
+	<inherits name="org.nibiru.mobile.gwt.Module" />
+	<source path="app" />
+	<source path="service" />
+	<source path="ui" />
+	<entry-point
+		class="org.nibiru.mobile.demo.client.gwt.app.GwtEntryPoint" />
+</module>

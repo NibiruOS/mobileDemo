@@ -1,0 +1,8 @@
+rootProject.name = 'Demo'
+
+include ':org.nibiru.mobile.demo.client.android'
+include ':org.nibiru.mobile.demo.client.core'
+include ':org.nibiru.mobile.demo.client.gwt'
+include ':org.nibiru.mobile.demo.client.ios'
+include ':org.nibiru.mobile.demo.server'
+include ':org.nibiru.mobile.demo.shared'

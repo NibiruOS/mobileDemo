@@ -1,0 +1,24 @@
+apply plugin: 'java'
+
+jar {
+    from sourceSets.main.java.srcDirs
+}
+
+configurations {
+    provided
+}
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+}
+
+dependencies {
+    compile project(":org.nibiru.mobile.demo.shared")
+    compile "io.github.nibiruos.ui:org.nibiru.ui.core:${nibiruUiVersion}"
+    compile "io.github.nibiruos.mobile:org.nibiru.mobile.java:${nibiruMobileVersion}"
+    compile "com.google.guava:guava:${guavaVersion}"
+    compile "com.google.dagger:dagger:${daggerVersion}"
+    provided "com.google.dagger:dagger-compiler:${daggerVersion}"
+}
